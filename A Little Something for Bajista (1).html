@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#C65320">
+<meta name="description" content="A little apology, made with love for Bajista.">
+<title>A Little Something for Bajista 🧡</title>
+<style>
+:root {
+  --site-primary: #C65320;
+  --site-on-primary: #FFFFFF;
+  --site-secondary: #F8B46C;
+  --site-on-secondary: #54250F;
+  --site-background: #FFF0DE;
+  --site-on-background: #54250F;
+  --site-font-body: ui-rounded, "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  --site-font-heading: ui-rounded, "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  --ink: #54250F;
+  --muted: #80543D;
+  --paper: #FFFAF2;
+  --line: #E9C6A8;
+  --orange-dark: #9F421D;
+  --peach: #FFD8B0;
+  --shadow: 0 18px 50px rgba(104, 47, 18, .13);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+body { margin: 0; font-family: var(--site-font-body); background: light-dark(var(--site-background), #26160F); color: light-dark(var(--ink), #FFF0DE); line-height: 1.65; }
+button { font: inherit; cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 3px solid #F8B46C; outline-offset: 4px; }
+#app { min-height: 100vh; width: 100%; border-radius: 0; overflow: clip; background-color: light-dark(var(--site-background), #26160F); color: light-dark(var(--ink), #FFF0DE); }
+.wrap { width: min(100% - 36px, 1040px); margin-inline: auto; }
+.section { padding: clamp(54px, 8vw, 94px) 0; }
+.eyebrow { font-size: .76rem; font-weight: 850; letter-spacing: .19em; text-transform: uppercase; }
+.center { text-align: center; }
+h1,h2,h3,p { margin-top: 0; }
+h1,h2,h3 { font-family: var(--site-font-heading); line-height: 1.08; letter-spacing: -.035em; }
+h1 { font-size: clamp(3rem, 12vw, 7.4rem); margin: 13px 0 18px; }
+h2 { font-size: calc(clamp(2rem, 6vw, 3.6rem) * var(--site-heading-scale)); margin-bottom: 16px; }
+h3 { font-size: calc(clamp(1.25rem, 3vw, 1.55rem) * var(--site-heading-scale)); margin-bottom: 10px; }
+p { max-width: 68ch; }
+.hero { position: relative; isolation: isolate; overflow: hidden; padding: clamp(60px, 10vw, 112px) 0 76px; color: #FFF8EF; background: var(--site-primary); }
+.hero::before,.hero::after { content: ""; position: absolute; z-index: -1; opacity: var(--site-decoration-opacity); border-radius: 50%; pointer-events: none; }
+.hero::before { width: 280px; height: 280px; background: #E87A38; right: -85px; top: -110px; }
+.hero::after { width: 150px; height: 150px; border: 2px solid rgba(255,240,222,.28); left: -65px; bottom: 20px; }
+.hero-inner { position: relative; max-width: 800px; }
+.hero .eyebrow { color: #FFD8B0; }
+.hero h1 span { color: #FFD8B0; display: inline-block; }
+.hero .intro { font-size: clamp(1.08rem, 2.8vw, 1.3rem); max-width: 590px; color: #FFF0DE; }
+.hero .tiny { color: #FFE0C4; font-size: .88rem; margin-top: 18px; }
+.pill { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 7px 13px; background: rgba(255,240,222,.14); border: 1px solid rgba(255,240,222,.28); color: #FFF4E8; font-size: .85rem; font-weight: 700; }
+.btn { display: inline-flex; justify-content: center; align-items: center; gap: 9px; min-height: 48px; padding: 13px 21px; border: 0; border-radius: 999px; background: var(--site-secondary); color: var(--site-on-secondary); font-weight: 850; box-shadow: 0 8px 20px rgba(77,31,9,.12); transition: transform .18s ease, box-shadow .18s ease, background .18s ease; text-decoration: none; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(77,31,9,.18); }
+.btn:active { transform: translateY(0) scale(.98); }
+.btn.outline { background: transparent; color: var(--site-primary); border: 2px solid var(--site-primary); box-shadow: none; }
+.btn.light { background: #FFF8EF; color: var(--orange-dark); }
+.hero .btn { margin-top: 15px; }
+.intro-section { background: light-dark(#FFF8EF, #342016); }
+.intro-card { background: light-dark(#FFF0DE, #42291C); border: 1px solid light-dark(#F0D1B5, #68412A); border-radius: calc(28px * var(--site-radius-scale)); padding: clamp(23px, 5vw, 42px); box-shadow: var(--shadow); }
+.intro-card p { font-size: 1.08rem; }
+.section-kicker { color: var(--site-primary); font-weight: 850; letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; }
+.letter-area { background: var(--site-secondary); color: #54250F; }
+.letter-area .section-kicker { color: #7E3515; }
+.letter-area .sub { color: #6C351D; }
+.envelope-stage { display: grid; place-items: center; padding: 20px 0 6px; perspective: 1000px; }
+.envelope-button { position: relative; width: min(100%, 360px); height: 230px; border: 0; background: transparent; padding: 0; perspective: 900px; border-radius: 14px; }
+.envelope { position: absolute; inset: 35px 8px 10px; background: #C65320; border-radius: 9px; box-shadow: 0 20px 32px rgba(105,48,17,.2); }
+.envelope::before { content: ""; position: absolute; inset: 0; background: #E87535; clip-path: polygon(0 0, 50% 60%, 100% 0); border-radius: 8px 8px 0 0; }
+.envelope::after { content: ""; position: absolute; inset: 0; background: #B54A1D; clip-path: polygon(0 100%, 0 0, 50% 58%, 100% 0, 100% 100%); border-radius: 0 0 8px 8px; }
+.flap { position: absolute; z-index: 3; top: 35px; left: 8px; right: 8px; height: 118px; background: #F28C38; clip-path: polygon(0 0, 100% 0, 50% 100%); transform-origin: top center; transition: transform .7s cubic-bezier(.2,.75,.2,1); filter: drop-shadow(0 4px 2px rgba(94,38,11,.08)); }
+.seal { position: absolute; z-index: 5; top: 116px; left: calc(50% - 22px); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: #FFF0DE; color: #C65320; font-size: 1.25rem; box-shadow: 0 3px 10px rgba(60,20,0,.15); transition: opacity .25s ease; }
+.letter-peek { position: absolute; z-index: 2; left: 25px; right: 25px; bottom: 27px; height: 150px; padding: 20px 14px; border-radius: 5px; background: #FFFAF2; color: #7E3515; box-shadow: 0 2px 7px rgba(60,20,0,.12); transition: transform .7s cubic-bezier(.2,.75,.2,1), bottom .7s ease; }
+.letter-peek span { font-family: Georgia, serif; font-style: italic; font-size: 1.1rem; }
+.envelope-button[aria-expanded="true"] .flap { transform: rotateX(180deg); z-index: 1; }
+.envelope-button[aria-expanded="true"] .letter-peek { transform: translateY(-105px); }
+.envelope-button[aria-expanded="true"] .seal { opacity: 0; }
+.tap-hint { font-size: .9rem; font-weight: 750; color: #6C351D; margin-top: 2px; }
+.letter-paper { display: none; max-width: 720px; margin: 26px auto 0; padding: clamp(23px, 5vw, 52px); border-radius: 5px; background: #FFFAF2; color: #54250F; box-shadow: 0 16px 45px rgba(105,48,17,.17); border-top: 7px solid #C65320; text-align: left; animation: paperIn .6s ease both; }
+.letter-paper.open { display: block; }
+.letter-paper .letter-text { white-space: pre-line; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1rem, 2.2vw, 1.12rem); line-height: 1.95; }
+.letter-signoff { color: #C65320; font-weight: 800; font-family: var(--site-font-body); }
+.letter-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.cards-section { background: light-dark(var(--site-background), #26160F); }
+.cards-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 32px; }
+.message-card { text-align: left; padding: 24px; width: 100%; min-height: 215px; border: 1px solid light-dark(#EAC4A4, #68412A); border-radius: calc(22px * var(--site-radius-scale)); background: light-dark(#FFF8EF, #342016); color: inherit; box-shadow: 0 8px 25px rgba(104,47,18,.06); transition: transform .2s ease, border-color .2s ease; }
+.message-card:hover { transform: translateY(-4px); border-color: var(--site-primary); }
+.card-icon { display: grid; place-items: center; width: 45px; height: 45px; margin-bottom: 20px; border-radius: 15px; background: #FFE0C4; color: #9F421D; font-size: 1.25rem; }
+.card-message { display: none; margin: 14px 0 0; color: light-dark(#80543D, #E8C7AE); font-size: .97rem; }
+.message-card[aria-expanded="true"] .card-message { display: block; animation: paperIn .3s ease both; }
+.message-card[aria-expanded="true"] { border-color: var(--site-primary); background: light-dark(#FFF0DE, #42291C); }
+.card-action { color: var(--site-primary); font-weight: 850; font-size: .85rem; margin-top: 12px; display: inline-block; }
+.play-section { background: #FFF8EF; color: #54250F; }
+.play-panel { background: #FFF0DE; border: 1px solid #F0D1B5; border-radius: calc(28px * var(--site-radius-scale)); padding: clamp(22px, 5vw, 42px); }
+.choice-list { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin: 24px 0 0; }
+.choice { min-height: 74px; padding: 14px; border-radius: 16px; border: 2px solid #E9C6A8; background: #FFFAF2; color: #54250F; font-weight: 800; transition: border-color .15s ease, transform .15s ease, background .15s ease; }
+.choice:hover { transform: translateY(-2px); border-color: #C65320; }
+.choice[aria-pressed="true"] { background: #C65320; color: #FFF8EF; border-color: #C65320; }
+.reaction { display: none; margin: 18px 0 0; padding: 17px 19px; background: #FFF8EF; border-radius: 14px; border-left: 4px solid #C65320; }
+.reaction.show { display: block; animation: paperIn .3s ease both; }
+.final-section { background: #9F421D; color: #FFF8EF; text-align: center; position: relative; overflow: hidden; }
+.final-section .section-kicker { color: #FFD8B0; }
+.final-section h2 { max-width: 800px; margin-inline: auto; }
+.final-section p { color: #FFE6D0; margin-inline: auto; }
+.final-response { display: none; max-width: 520px; margin: 24px auto 0; padding: 20px 22px; border-radius: 18px; background: #FFF0DE; color: #54250F; }
+.final-response.show { display: block; animation: paperIn .35s ease both; }
+footer { background: #7F3217; color: #FFE6D0; text-align: center; padding: 24px 15px; font-size: .85rem; }
+footer p { margin: 0 auto; }
+@keyframes paperIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 700px) {
+  .wrap { width: min(100% - 28px, 560px); }
+  .section { padding: 55px 0; }
+  .hero { padding: 62px 0 60px; }
+  .cards-grid { grid-template-columns: 1fr; gap: 12px; }
+  .message-card { min-height: 0; padding: 20px; }
+  .card-icon { margin-bottom: 14px; }
+  .choice-list { grid-template-columns: 1fr; }
+  .choice { min-height: 54px; }
+  .envelope-button { max-width: 340px; height: 218px; }
+  .letter-paper { padding: 23px 20px; }
+  .letter-actions .btn { width: 100%; }
+}
+@media (max-width: 360px) {
+  .wrap { width: calc(100% - 24px); }
+  .hero h1 { font-size: 2.8rem; }
+  .btn { width: 100%; }
+  .envelope-button { height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+<main id="app">
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <span class="pill">A tiny digital gift <span aria-hidden="true">🧡</span></span>
+      <p class="eyebrow" style="margin-top:28px;margin-bottom:0">A LITTLE SOMETHING FOR</p>
+      <h1>BAJISTA<span> 🧡</span></h1>
+      <h2 style="font-size:clamp(1.5rem,4.4vw,2.35rem);letter-spacing:-.025em;max-width:650px">Okay, listen… don't tease me yet.</h2>
+      <p class="intro">I have something important to tell you. And yes, for once, I'll let you read the whole thing before making fun of me.</p>
+      <button class="btn" id="openSurprise">Open your surprise <span aria-hidden="true">💌</span></button>
+      <p class="tiny">Made with love, a little guilt, and probably too much overthinking.</p>
+    </div>
+  </header>
+
+  <section class="section intro-section" id="intro">
+    <div class="wrap">
+      <div class="intro-card">
+        <p class="section-kicker">Before you say anything…</p>
+        <h2 style="font-size:clamp(1.9rem,5vw,3rem)">Hear me out. 😭</h2>
+        <p>I know I've been unavailable lately, and I'm really sorry about that. Work has been taking up so much of my time, and I've been staying in the lab till late at night.</p>
+        <p style="margin-bottom:24px">I wasn't ignoring you. But I know that being busy doesn't make it any less disappointing when I can't make time to talk.</p>
+        <button class="btn" id="goLetter">Okay, now for the actual letter <span aria-hidden="true">↓</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section letter-area" id="letter">
+    <div class="wrap center">
+      <p class="section-kicker">A letter, just for you</p>
+      <h2>Open when you're ready. 💌</h2>
+      <p class="sub" style="margin-inline:auto">A little less teasing for a minute. A little more from my heart.</p>
+      <div class="envelope-stage">
+        <button class="envelope-button" id="envelopeButton" aria-label="Open the letter for Bajista" aria-expanded="false" aria-controls="letterPaper">
+          <span class="letter-peek" aria-hidden="true"><span>Hey Bajista, 🧡</span><br><span style="font-size:.85rem">There's something I want you to know…</span></span>
+          <span class="envelope" aria-hidden="true"></span>
+          <span class="flap" aria-hidden="true"></span>
+          <span class="seal" aria-hidden="true">♥</span>
+        </button>
+      </div>
+      <p class="tap-hint" id="envelopeHint">Tap the envelope to open your letter</p>
+      <article class="letter-paper" id="letterPaper" aria-live="polite">
+        <div class="letter-text" id="letterText">Hey Bajista, 🧡
+
+I am so, so, so sorry for not being able to talk to you properly.
+
+I know saying I was busy sounds like an excuse, and honestly, I get that. But I really wasn't ignoring you. There has just been so much workload lately, and I've been staying in the lab till late at night. By the time everything is done, I'm exhausted, and somehow, time just slips away.
+
+But I don't want you to think that I don't want to talk to you, because that's not it at all. I'm sorry if my absence made you feel that way.
+
+I know being busy explains why I haven't been around, but it doesn't change the fact that I should have made more time to talk to you. You matter to me, and I don't want work to make you feel otherwise.
+
+I can't promise that I'll never get busy again, but I do want to make a better effort to stay in touch instead of letting days go by.
+
+So, please accept this very official, very serious, extremely dramatic apology from me. 🥹
+
+And yes, you are allowed to tease me about making an entire website just to apologize. But please appreciate the effort first. 😂🧡
+
+I'm really sorry, Bajista. Love you.
+
+Now, can we please talk soon? ❤️</div>
+        <p class="letter-signoff" style="margin:20px 0 0">With love (and a very guilty face),<br>Your sibling 🧡</p>
+        <div class="letter-actions">
+          <button class="btn" id="copyLetter">Copy letter</button>
+          <button class="btn outline" id="closeLetter">Close letter</button>
+        </div>
+        <p id="copyStatus" role="status" style="font-size:.85rem;margin:12px 0 0"></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section cards-section" id="things">
+    <div class="wrap">
+      <div class="center">
+        <p class="section-kicker">Just three little reminders</p>
+        <h2>Three things I need you to know.</h2>
+        <p style="margin-inline:auto;color:var(--muted)">Tap each card. Yes, this is the part where I get a little sentimental. Don't get used to it. 😂</p>
+      </div>
+      <div class="cards-grid">
+        <button class="message-card" aria-expanded="false">
+          <span class="card-icon" aria-hidden="true">🥹</span>
+          <h3>I'm sorry.</h3>
+          <span>Tap for the honest bit ↗</span>
+          <p class="card-message">I'm genuinely sorry that I haven't been able to make enough time to talk to you. I know I could have done better.</p>
+          <span class="card-action">Read message</span>
+        </button>
+        <button class="message-card" aria-expanded="false">
+          <span class="card-icon" aria-hidden="true">🧡</span>
+          <h3>I wasn't ignoring you.</h3>
+          <span>Tap for the honest bit ↗</span>
+          <p class="card-message">The workload and those late nights in the lab have been a lot lately. But I don't want you to mistake my busyness for not wanting to talk to you.</p>
+          <span class="card-action">Read message</span>
+        </button>
+        <button class="message-card" aria-expanded="false">
+          <span class="card-icon" aria-hidden="true">😂</span>
+          <h3>You matter, idiot.</h3>
+          <span>Tap for the honest bit ↗</span>
+          <p class="card-message">Just because I'm busy doesn't mean you're any less important to me. I want us to make time to catch up.</p>
+          <span class="card-action">Read message</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section play-section">
+    <div class="wrap">
+      <div class="play-panel center">
+        <p class="section-kicker">A very important question</p>
+        <h2 style="font-size:clamp(1.9rem,5vw,3rem)">How dramatic is this apology?</h2>
+        <p style="margin-inline:auto">Choose wisely, Bajista. Your answer will be judged by absolutely nobody. 😌</p>
+        <div class="choice-list" role="group" aria-label="Choose how dramatic this apology is">
+          <button class="choice" aria-pressed="false" data-reaction="A little dramatic 😂">A little dramatic 😂</button>
+          <button class="choice" aria-pressed="false" data-reaction="Okay, very dramatic 😭">Okay, very dramatic 😭</button>
+          <button class="choice" aria-pressed="false" data-reaction="You made a WHOLE WEBSITE?! 💀">You made a WHOLE WEBSITE?! 💀</button>
+        </div>
+        <div class="reaction" id="reaction" role="status">Listen, I had a lot to apologize for. Let me have this one. 😂🧡</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section final-section" id="talk">
+    <div class="wrap">
+      <p class="section-kicker">One last thing, Bajista</p>
+      <h2>Work gets busy. Days get away from us. But I don't want us to forget to make time for each other. 🧡</h2>
+      <p>I'm sorry, Bajista. Can we talk soon?</p>
+      <button class="btn light" id="talkButton">YES, LET'S TALK <span aria-hidden="true">❤️</span></button>
+      <div class="final-response" id="finalResponse" role="status">That would make me really happy. Let's find some time to catch up. No pressure — I just want to talk to you. 🧡</div>
+    </div>
+  </section>
+  <footer><p>Made for Bajista, with love. 🧡 No music, no big speech — just me saying I'm sorry.</p></footer>
+</main>
+<script>
+(() => {
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const scrollTo = (id) => { const target = document.getElementById(id); if (target) target.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start'}); };
+  $('#openSurprise').addEventListener('click', () => scrollTo('intro'));
+  $('#goLetter').addEventListener('click', () => scrollTo('letter'));
+
+  const envelope = $('#envelopeButton');
+  const paper = $('#letterPaper');
+  const hint = $('#envelopeHint');
+  function setLetterOpen(open) {
+    envelope.setAttribute('aria-expanded', String(open));
+    paper.classList.toggle('open', open);
+    hint.textContent = open ? 'Your letter is open 🧡' : 'Tap the envelope to open your letter';
+    if (open) window.setTimeout(() => paper.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest'}), 180);
+  }
+  envelope.addEventListener('click', () => setLetterOpen(envelope.getAttribute('aria-expanded') !== 'true'));
+  $('#closeLetter').addEventListener('click', () => { setLetterOpen(false); envelope.focus(); });
+  $('#copyLetter').addEventListener('click', async () => {
+    const text = $('#letterText').innerText + '\n\nWith love (and a very guilty face),\nYour sibling 🧡';
+    const status = $('#copyStatus');
+    try {
+      if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+      else {
+        const area = document.createElement('textarea'); area.value = text; area.style.position = 'fixed'; area.style.opacity = '0'; document.body.appendChild(area); area.select();
+        const ok = document.execCommand('copy'); area.remove(); if (!ok) throw new Error('Copy unavailable');
+      }
+      status.textContent = 'Letter copied. Keep being sentimental. 🧡';
+    } catch (error) { status.textContent = 'Copy is unavailable in this browser. You can select and copy the letter text manually.'; }
+  });
+
+  $$('.message-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const open = card.getAttribute('aria-expanded') !== 'true';
+      card.setAttribute('aria-expanded', String(open));
+      $('.card-action', card).textContent = open ? 'Hide message' : 'Read message';
+    });
+  });
+  $$('.choice').forEach(choice => {
+    choice.addEventListener('click', () => {
+      $$('.choice').forEach(button => button.setAttribute('aria-pressed', String(button === choice)));
+      const reaction = $('#reaction');
+      reaction.textContent = choice.dataset.reaction + '\n\nListen, I had a lot to apologize for. Let me have this one. 😂🧡';
+      reaction.classList.add('show');
+    });
+  });
+  $('#talkButton').addEventListener('click', () => {
+    const response = $('#finalResponse');
+    response.classList.add('show');
+    $('#talkButton').textContent = 'THAT WOULD MAKE ME HAPPY 🧡';
+    response.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest'});
+  });
+})();
+</script>
+</body>
+</html>
